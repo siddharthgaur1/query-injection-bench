@@ -9,7 +9,7 @@ import pytest
 from corpus.build import build
 from qib.adapters import NaiveAdapter, PromptDenylistAdapter, _sql_fixture
 from qib.case import Case, dump, load
-from qib.score import Report, score
+from qib.score import score
 
 ROOT = Path(__file__).resolve().parent.parent
 

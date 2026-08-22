@@ -24,8 +24,9 @@ import os
 import re
 import sqlite3
 import sys
+from collections.abc import Callable
 from pathlib import Path
-from typing import Callable, Protocol
+from typing import Protocol
 
 from qib.case import Case
 
@@ -125,13 +126,13 @@ class QueryPilotAdapter:
     def verdict(self, case: Case) -> str:
         try:
             cleaned = self._agent.validate_sql(case.candidate_query)
-        except Exception:
+        except Exception:  # noqa: BLE001 — fail-closed: any validator error counts as blocked
             return "block"
         conn = self._agent._connect_readonly(self._db)
         try:
             conn.execute(cleaned).fetchmany(1)
             return "allow"
-        except Exception:
+        except Exception:  # noqa: BLE001 — fail-closed: any execution error counts as blocked
             return "block"
         finally:
             conn.close()
@@ -177,7 +178,7 @@ class CypherGuardAdapter:
     def verdict(self, case: Case) -> str:
         try:
             return "allow" if self._validator.validate(case.candidate_query).ok else "block"
-        except Exception:
+        except Exception:  # noqa: BLE001 — fail-closed: any validator error counts as blocked
             # A guard that crashes has not allowed the query, but it has also not
             # cleanly refused it. Counting it as a block is the charitable read.
             return "block"

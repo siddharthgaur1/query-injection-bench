@@ -1,5 +1,9 @@
 # query-injection-bench
 
+[![Portfolio](https://img.shields.io/badge/↩-siddharthgaur1-111827?style=flat-square)](https://github.com/siddharthgaur1)
+[![CI](https://github.com/siddharthgaur1/query-injection-bench/actions/workflows/ci.yml/badge.svg)](https://github.com/siddharthgaur1/query-injection-bench/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 An adversarial benchmark for prompt injection against natural-language-to-query
 agents. 226 cases across SQL and Cypher, five scored defences, and a
 false-positive set that counts.
