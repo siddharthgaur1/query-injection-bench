@@ -1,7 +1,7 @@
 # Core harness has no third-party dependencies.
 # These are needed only to import the two real agents under test:
-numpy
-pydantic
-pydantic-settings
-python-dotenv
-pytest
+numpy==2.4.6
+pydantic==2.13.4
+pydantic-settings==2.14.2
+python-dotenv==1.2.2
+pytest==9.1.1
