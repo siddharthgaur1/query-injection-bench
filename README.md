@@ -26,6 +26,10 @@ before/after is the honest version of "I built layered write-safety":
 
 Full detail in [FINDINGS.md](FINDINGS.md).
 
+![Attack success rate and false-positive rate per defence](docs/asr-vs-fpr.png)
+
+*ASR and FPR per adapter, read from `results/leaderboard.json` (before fix) and `results/leaderboard_after_fix.json`. Regenerate: `python scripts/make_readme_chart.py`.*
+
 ## Leaderboard
 
 `python -m qib.run` — 226 cases, deterministic.
